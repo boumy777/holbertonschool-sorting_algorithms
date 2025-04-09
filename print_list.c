@@ -2,22 +2,21 @@
 #include "sort.h"
 
 /**
- * print_list - Prints a list of integers
- *
- * @list: The list to be printed
+ * print_list - Prints a doubly linked list of integers
+ * @list: Pointer to the head of the list
  */
 void print_list(const listint_t *list)
 {
-    int i;
+	int first = 1;
 
-    i = 0;
-    while (list)
-    {
-        if (i > 0)
-            printf(", ");
-        printf("%d", list->n);
-        ++i;
-        list = list->next;
-    }
-    printf("\n");
+	while (list)
+	{
+		if (!first)
+			printf(", ");
+		printf("%d", list->n);
+		first = 0;
+		list = list->next;
+	}
+	printf("\n");
 }
+
